@@ -3,6 +3,16 @@ variable "bucket_name" {
   description = "Remote state bucket name"
 }
 
+variable "name" {
+  type        = string
+  description = "Tag name"
+}
+
+variable "environment" {
+  type        = string
+  description = "Environment name"
+}
+
 variable "vpc_cidr" {
   type        = string
   description = "Public Subnet CIDR values"
@@ -36,4 +46,14 @@ variable "public_key" {
 variable "ec2_ami_id" {
   type        = string
   description = "DevOps Project 1 AMI Id for EC2 instance"
+}
+
+variable "ec2_user_data_install_apache" {
+  type = string
+  description = "Script for installing the Apache2"
+}
+
+variable "domain_name" {
+  type = string
+  description = "Name of the domain"
 }
