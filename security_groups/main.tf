@@ -35,7 +35,7 @@ resource "aws_security_group" "ec2_sg" {
 
   # Jenkins access
   ingress {
-    description = "Allow Jenkins"
+    description = "Allow port 8080"
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
