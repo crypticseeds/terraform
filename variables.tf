@@ -60,12 +60,12 @@ variable "db_instance_class" {
 
 variable "db_username" {
   type        = string
-  description = "Username for RDS instance"
+  description = "Username for the database"
 }
 
 variable "db_password" {
   type        = string
-  description = "Password for RDS instance"
+  description = "Password for the database"
   sensitive   = true
 }
 
