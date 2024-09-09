@@ -20,12 +20,18 @@ output "nexus_public_ip" {
   value = module.ec2.nexus_public_ip
 }
 
-output "lb_dns_name" {
-  value = module.lb.nlb_dns_name
-}
-
 */
 
 output "eks_cluster_endpoint" {
   value = module.eks.endpoint
+}
+
+output "load_balancer_url" {
+  value       = module.lb.nlb_dns_name
+  description = "The URL of the load balancer"
+}
+
+output "rds_endpoint" {
+  value       = module.rds.endpoint
+  description = "The connection endpoint for the RDS instance"
 }
