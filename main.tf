@@ -23,8 +23,6 @@ module "ec2" {
   public_key          = var.public_key
 }
 
-
-
 # Commented out modules to be launched later as needed
 
 module "eks" {
@@ -33,7 +31,7 @@ module "eks" {
   subnet_ids = module.networking.private_subnet_ids
 }
 
-/*
+
 data "aws_instances" "eks_nodes" {
   instance_tags = {
     "eks:cluster-name"   = module.eks.cluster_name
@@ -41,10 +39,18 @@ data "aws_instances" "eks_nodes" {
   }
 }
 
-
 module "lb" {
   source            = "./lb"
   vpc_id            = module.networking.vpc_id
   public_subnet_ids = module.networking.public_subnet_ids
 }
-*/
+
+
+module "rds" {
+  source            = "./rds"
+  subnet_ids        = module.networking.private_subnet_ids
+  security_group_id = module.security_groups.db_sg_id
+  instance_class    = var.db_instance_class
+  db_username       = var.db_username
+  db_password       = var.db_password
+}
