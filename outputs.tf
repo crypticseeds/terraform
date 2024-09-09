@@ -7,6 +7,7 @@ output "jenkins_public_ip" {
 }
 
 # Commented out outputs for resources not currently in use
+
 /*
 output "sonarqube_public_ip" {
   value = module.ec2.sonarqube_public_ip
@@ -22,6 +23,7 @@ output "nexus_public_ip" {
 
 */
 
+/*
 output "eks_cluster_endpoint" {
   value = module.eks.endpoint
 }
@@ -35,3 +37,4 @@ output "rds_endpoint" {
   value       = module.rds.endpoint
   description = "The connection endpoint for the RDS instance"
 }
+*/
