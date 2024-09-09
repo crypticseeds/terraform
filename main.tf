@@ -25,13 +25,15 @@ module "ec2" {
 
 # Commented out modules to be launched later as needed
 
+/*
+# Needed for EKS
 module "eks" {
   source     = "./eks"
   vpc_id     = module.networking.vpc_id
   subnet_ids = module.networking.private_subnet_ids
 }
 
-
+# Needed for Load Balancer
 data "aws_instances" "eks_nodes" {
   instance_tags = {
     "eks:cluster-name"   = module.eks.cluster_name
@@ -45,7 +47,7 @@ module "lb" {
   public_subnet_ids = module.networking.public_subnet_ids
 }
 
-
+# Needed for RDS
 module "rds" {
   source            = "./rds"
   subnet_ids        = module.networking.private_subnet_ids
@@ -54,3 +56,4 @@ module "rds" {
   db_username       = var.db_username
   db_password       = var.db_password
 }
+*/
