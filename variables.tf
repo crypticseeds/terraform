@@ -15,7 +15,7 @@ variable "environment" {
 
 variable "vpc_cidr" {
   type        = string
-  description = "Public Subnet CIDR values"
+  description = "CIDR block for the VPC"
 }
 
 variable "vpc_name" {
@@ -23,37 +23,63 @@ variable "vpc_name" {
   description = "DevOps Project 1 VPC 1"
 }
 
-variable "cidr_public_subnet" {
-  type        = list(string)
-  description = "Public Subnet CIDR values"
-}
-
-variable "cidr_private_subnet" {
-  type        = list(string)
-  description = "Private Subnet CIDR values"
-}
-
-variable "eu_availability_zone" {
-  type        = list(string)
-  description = "Availability Zones"
-}
-
 variable "public_key" {
   type        = string
   description = "DevOps Project 1 Public key for EC2 instance"
 }
 
-variable "ec2_ami_id" {
+variable "region" {
   type        = string
-  description = "DevOps Project 1 AMI Id for EC2 instance"
+  description = "AWS region"
 }
 
-variable "ec2_user_data_install_apache" {
-  type = string
-  description = "Script for installing the Apache2"
+variable "public_subnet_cidrs" {
+  type        = list(string)
+  description = "CIDR blocks for public subnets"
 }
 
-variable "domain_name" {
-  type = string
-  description = "Name of the domain"
+variable "private_subnet_cidrs" {
+  type        = list(string)
+  description = "CIDR blocks for private subnets"
+}
+
+variable "availability_zones" {
+  type        = list(string)
+  description = "List of availability zones"
+}
+
+variable "ec2_instance_type" {
+  type        = string
+  description = "EC2 instance type"
+}
+
+variable "db_instance_class" {
+  type        = string
+  description = "RDS instance class"
+}
+
+variable "db_username" {
+  type        = string
+  description = "Username for RDS instance"
+}
+
+variable "db_password" {
+  type        = string
+  description = "Password for RDS instance"
+  sensitive   = true
+}
+
+variable "ec2_ami_owner" {
+  type        = string
+  description = "Owner ID of the AMI"
+}
+
+variable "ec2_ami_name_filter" {
+  type        = string
+  description = "Name filter for the EC2 AMI"
+}
+
+variable "allowed_ssh_cidr" {
+  type        = string
+  description = "CIDR block for allowed SSH access"
 }
