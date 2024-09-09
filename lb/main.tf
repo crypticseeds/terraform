@@ -47,7 +47,8 @@ resource "aws_lb_listener" "main" {
 }
 
 output "nlb_dns_name" {
-  value = aws_lb.main.dns_name
+  value       = aws_lb.main.dns_name
+  description = "The DNS name of the load balancer"
 }
 
 output "target_group_arn" {
