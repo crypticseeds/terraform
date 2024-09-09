@@ -31,12 +31,11 @@ resource "aws_db_subnet_group" "main" {
 
 resource "aws_db_instance" "main" {
   identifier           = "main-db"
-  engine               = "postgres"
-  engine_version       = "13.7"
+  engine               = "mysql"
+  engine_version       = "8.0.32"
   instance_class       = var.instance_class
   allocated_storage    = 20
   storage_type         = "gp2"
-  db_name              = "postgress_db"
   username             = var.db_username
   password             = var.db_password
   db_subnet_group_name = aws_db_subnet_group.main.name
@@ -45,6 +44,7 @@ resource "aws_db_instance" "main" {
 }
 
 output "endpoint" {
-  value = aws_db_instance.main.endpoint
+  value       = aws_db_instance.main.endpoint
+  description = "The connection endpoint for the RDS instance"
 }
 
