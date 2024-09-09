@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "yelp-camp-remote-backend-45646"
+    bucket = "devopsfoundry-tf"
     key    = "yelp-camp/terraform.tfstate"
     region = "eu-west-2"
   }
